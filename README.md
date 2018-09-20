@@ -6,7 +6,7 @@ Saber.
 
 #### But you can already do that!
 This is a file discovery service, and manual queue management system. What that actually means, is it allows players to
-loot at what songs you have without playing.
+look at what songs you have without playing.
 
 #### What was that about queues?
 So imagine for a second that you have Beat Saber. Imagine you have 6 people who wanna play. Now imagine you have 
