@@ -1,6 +1,8 @@
 package com.ktill.queuesaber.controllers;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -9,12 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    //TODO: Check cookie for existing username
-
-    //TODO: Set cookie after username is entered
-
     @GetMapping({"", "/", "index", "index.html"})
-    public String getIndex(){
-        return "index";
+    public String getIndex(@CookieValue(name = "queuesaberCookie", value = "playerName", required = false) String playerName){
+        if (StringUtils.isBlank(playerName)) {
+            return "index";
+        }
+        return "songs";
     }
 }
