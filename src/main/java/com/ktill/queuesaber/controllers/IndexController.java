@@ -2,13 +2,11 @@ package com.ktill.queuesaber.controllers;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Splash screen/index controller. This is the first page a user will see and it will allow them to set their username
@@ -28,10 +26,15 @@ public class IndexController {
         return "redirect:/all";
     }
 
-    @GetMapping("/login")
-    public @ResponseBody String login(@RequestParam("userName") String userName, HttpServletResponse response){
+    @PostMapping("/login")
+    public @ResponseBody void login(@RequestParam("userName") String userName, HttpServletResponse response){
         //set a cookie here with the user's display name
         response.addCookie(new Cookie("queuesaberCookie", userName));
-        return "redirect:/all";
+        try {
+            response.sendRedirect("/all");
+        } catch (IOException ex){
+            System.out.println(ex);
+        }
     }
+    
 }
