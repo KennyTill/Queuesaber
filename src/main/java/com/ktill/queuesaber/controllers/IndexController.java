@@ -27,7 +27,7 @@ public class IndexController {
     }
 
     @PostMapping("/login")
-    public @ResponseBody void login(@RequestParam("userName") String userName, HttpServletResponse response){
+    public void login(@RequestParam("userName") String userName, HttpServletResponse response){
         //set a cookie here with the user's display name
         response.addCookie(new Cookie("queuesaberCookie", userName));
         try {
