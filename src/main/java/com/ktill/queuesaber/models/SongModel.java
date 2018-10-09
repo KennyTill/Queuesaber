@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SongModel {
     private final String songName;
+    private final String songSubName;
     private final String authorName;
-    private final String key;
-    private final String[] difficulties;
+    private final Integer beatsPerMinute;
+    private final String coverImagePath;
+    private final DifficultyLevels[] difficultyLevels;
 }

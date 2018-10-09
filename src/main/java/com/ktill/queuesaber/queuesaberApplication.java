@@ -1,19 +1,23 @@
 package com.ktill.queuesaber;
 
-import com.ktill.queuesaber.components.DataLoader;
-import com.ktill.queuesaber.components.JSONDataLoader;
-import com.ktill.queuesaber.models.SongModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-import java.util.List;
 
 @SpringBootApplication
 public class queuesaberApplication {
+
+    @Value("${fileLocation}")
+    private String fileLocation;
+
     public static void main(String[] args){
         SpringApplication.run(queuesaberApplication.class, args);
-        DataLoader dataLoader = new JSONDataLoader();
-        List<SongModel> songs = dataLoader.loadSongs("/Users/kennethtill/records.json");
-        System.out.println(songs.size());
+    }
+
+    @Bean
+    public String fileLocation(){
+        return this.fileLocation;
     }
 }
