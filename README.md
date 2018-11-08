@@ -21,6 +21,5 @@ displayed over the game screen (not in the VR headset). It will show the current
 upcoming player list. 
 
 #### Getting it set up
-This project is planned to work with the records.json file that was generated while using something like 
-[Beat Scraper](https://github.com/ribcakes/beat-scraper). As in: the entire project
-here was an idea that came out of how to manage all those songs. 
+This project scans the custom songs directory specified, and looks for the info.json file for each track. You will need
+to specify the location for that folder. 
