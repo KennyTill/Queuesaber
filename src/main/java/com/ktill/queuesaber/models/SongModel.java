@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class SongModel {
-
-    private final String trackName;
-    private final String artistInfo;
-    private final String trackID;
-    private final String[] difficulties;
-    private final Integer length;
+    private final String songName;
+    private final String songSubName;
+    private final String authorName;
+    private final Integer beatsPerMinute;
+    private final String coverImagePath;
+    private final DifficultyLevels[] difficultyLevels;
 }
